@@ -4,18 +4,16 @@ import { createStore } from 'redux';
 import { View, Text } from 'react-native';
 import firebase from 'firebase';
 
+import {
+  apiKey, authDomain, databaseURL, projectId, storageBucket, messagingSenderId
+} from 'react-native-dotenv';
+
 import reducers from './reducers';
 
 class App extends Component {
   componentWillMount() {
-    const config = {
-      apiKey: 'AIzaSyBkngPHTh2poy7TidEn3tZtbtmns8bO4uM',
-      authDomain: 'navapp-242b6.firebaseapp.com',
-      databaseURL: 'https://navapp-242b6.firebaseio.com',
-      projectId: 'navapp-242b6',
-      storageBucket: 'navapp-242b6.appspot.com',
-      messagingSenderId: '356158180084'
-    };
+    // move the config to a .env file and import it back in.
+    const config = { apiKey, authDomain, databaseURL, projectId, storageBucket, messagingSenderId };
   firebase.initializeApp(config);
   }
 
